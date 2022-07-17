@@ -1,0 +1,27 @@
+h3{
+    color: white;
+}
+
+.nav-item{
+    background: #1A407D;
+}
+
+.nav-link{
+    color: white;
+}
+
+.tab-content{
+    background-color: #1A407D;
+    box-shadow: 2px 2px 6px black inset;
+    display: flex;
+}
+
+.btn{
+    background: #1C71D9;
+    box-shadow: 2px 2px 6px black;
+}
+
+.table{
+    color: white;
+    box-shadow: 2px 2px 6px black;
+}

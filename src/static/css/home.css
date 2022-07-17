@@ -1,0 +1,72 @@
+h1, h3 {
+    color: white;
+    text-align: center;
+}
+
+
+.img-nav{
+    width: 70px;
+    height: 50px;
+}
+
+#chatbox {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    width: 60%;
+    height: 300px;
+    overflow-y: auto;
+}
+
+#userInput {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    margin-top: 60px;
+}
+
+#textInput {
+    width: 87%;
+    border: none;
+    border-bottom: 3px solid #009688;
+    font-family: monospace;
+    font-size: 17px;
+}
+
+#buttonInput {
+    padding: 3px;
+    font-family: monospace;
+    font-size: 17px;
+}
+
+.userText {
+    color: #041540;
+    font-family: monospace;
+    font-size: 17px;
+    text-align: left;
+    line-height: 30px;
+}
+
+.userText span {
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px black;
+}
+
+.botText {
+    color: white;
+    font-family: monospace;
+    font-size: 17px;
+    text-align: right;
+    line-height: 30px;
+}
+
+.botText span {
+    background-color: #115EB8;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px black;
+}

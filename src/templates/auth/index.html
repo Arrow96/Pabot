@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo.png') }}">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+</head>
+
+<body class="text-center">
+    <nav class="navbar navbar-expand-sm navbar-dark" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="javascript:void(0)">
+                <img class="mb-4" src="{{ url_for('static', filename='img/logo.png') }}" width="70" height="45">
+            </a>
+
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto" id="saludo">
+                </ul>
+                <a class="btn btn-primary" href="{{url_for('login')}}">
+                    <img src="{{ url_for('static', filename='img/person-circle.svg') }}" alt="Bootstrap" width="32" height="32">
+                </a>
+            </div>
+        </div>
+    </nav><br>
+    <section>
+        <h5>¿Que es Pabot?</h5>
+        <p>
+            Pabot es una inteligencia artificial generador de texto condicionado para tener la capacidad de realizar una conversación con un usuario, en otras palabras lo que comúnmente se conoce como "Chatbot", con Pabot un usuario podrá simular una conversación con otra persona en el idioma a elección, el objetivo de esto es aumentar la confianza de este al momento de llevar a cabo una conversación real, practicar su capacidad de comunicación y fonética, poniendo a prueba el dominio que posea de dicho idioma.
+        </p>
+    </section>
+
+    <section>
+        <h5>¿Con que meta se creo Pabot?</h5>
+        <p>
+            Pabot fue creado con la intención de ser una herramienta de apoyo para los docentes de idioma, de tal forma que tengan a disposición una plataforma en donde los estudiantes puedan utilizar como un simulador de práctica y usar todo lo aprendido, de esta forma los docentes pueden realizar una clase más interactiva y asi aumentar la motivación de los estudiantes.
+        </p>
+    </section>
+
+    <section>
+        <h5>¿Quien desarrollo Pabot?</h5>
+        <p>
+            Pabot fue creado por un grupo de estudiantes del Instituto Técnico Profesional INACAP, con el fin de ser utilizado como proyecto de titulación de la carrera Analista Programador, Durante 5 meses el equipo de desarrollo utilizo todo el conocimiento aprendido durante su periodo de estudio para construir este proyecto.
+        </p>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

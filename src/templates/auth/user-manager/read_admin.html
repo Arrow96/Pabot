@@ -1,0 +1,138 @@
+  <div class="container">
+        <div class = row>
+            <div class="col-md-12">
+                <br>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal_admin">
+                      <img src="{{ url_for('static', filename='img/person-plus-fill.svg') }}" alt="Bootstrap" width="32" height="32">
+                </button>
+                <br><br>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>E-mail</th>
+                            <th>Alias</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    {% for row_admin in admins %}
+                    <tbody>
+                        <tr>
+                            <td>{{row_admin[0]}}</td>
+                            <td><span class="td-mail">{{row_admin[1]}}</span></td>
+                            <td>{{row_admin[2]}}</td>
+                            <td>{{row_admin[3]}}</td>
+                            <td>
+                                <a href="#" class="btn btn-warning btn-xs" data-bs-toggle="modal" data-bs-target="#modalEdit_admin{{row_admin.0}}">Edit</a>
+                                <a href="/delete-user/{{row_admin.0}}" class="btn btn-warning btn-xs" onclick="return confirm('¿Desea eliminar este elemento?')" >
+                                    <img src="{{ url_for('static', filename='img/trash3.svg') }}" alt="Bootstrap">
+                                </a>
+                            </td>
+                        </tr>
+                        <!-- The Modal -->
+                        <div class="modal" id="modalEdit_admin{{row_admin.0}}">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Editar Administrador</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <form action="{{url_for('updateUser')}}" method="POST">
+                                            <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                                            <input type="hidden" name="id" value="{{row_admin.0}}">
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">E-mail:</span>
+                                                <input type="email" class="form-control" name="email" value="{{row_admin.1}}" disabled>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">Contraseña:</span>
+                                                <input type="password" class="form-control" name="password" value="">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">Alias:</span>
+                                                <input type="text" id="alias_admin1" class="form-control" name="alias" value="{{row_admin.2}}">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">Tipo:</span>
+                                                <select class="form-control" name="tipo">
+                                                  <option value="user">Usuario</option>
+                                                  <option value="admin">Administrador</option>
+                                                </select>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">Estado:</span>
+                                                <select class="form-control" name="state">
+                                                  <option value="habilitado">Habilitado</option>
+                                                  <option value="deshabilitado">Deshabilitado</option>
+                                                </select>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-primary">Modificar Datos</button>
+                                        </form>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal" id="myModal_admin">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Nuevo Administrador</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form action="{{url_for('createUser')}}" method="POST">
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">E-mail:</span>
+                            <input type="email" class="form-control" name="email">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Contraseña:</span>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Alias:</span>
+                            <input type="text" class="form-control" name="alias">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Tipo:</span>
+                            <select class="form-select" name="tipo">
+                                <option value="admin">Administrador</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Crear Administrador</button>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>

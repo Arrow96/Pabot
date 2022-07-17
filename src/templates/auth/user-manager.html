@@ -1,0 +1,36 @@
+{% extends './base1.html' %}
+
+{% block title %}User-Manager{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user-manager.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <br>
+    <nav>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#container_user">User</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#container_admin">Admin</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane container active" id="container_user">
+            {% include './auth/user-manager/read_user.html' %}
+        </div>
+        <div class="tab-pane container fade" id="container_admin">
+            {% include './auth/user-manager/read_admin.html' %}
+        </div>
+    </div>
+
+
+
+{% endblock %}

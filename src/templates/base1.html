@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo.png') }}">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    {% block customCSS %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+    {% endblock %}
+</head>
+
+<body class="text-center">
+    <nav class="navbar navbar-expand-sm navbar-dark" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="javascript:void(0)">
+                <img class="mb-4" src="{{ url_for('static', filename='img/logo.png') }}" width="70" height="45">
+            </a>
+
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto" id="saludo">
+                    <h3>Bienvenido, {{ current_user.alias }}</h3>
+                </ul>
+                <a class="btn btn-primary" href="{{ url_for('logout') }}" id="desconectar">
+                    <img src="{{ url_for('static', filename='img/box-arrow-right.svg') }}" alt="Bootstrap" width="32" height="32">
+                </a>
+            </div>
+        </div>
+    </nav>
+    {% block body %}
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

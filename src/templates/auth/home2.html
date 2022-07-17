@@ -1,0 +1,24 @@
+{% extends './base1.html' %}
+
+{% block title %}Spanish-Pabot{% endblock %}
+
+{% block customCSS %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block body %}
+{% include './auth/home/menu-language.html' %}
+<div>
+      <div id = "userInput">
+          <input id ="textInput" type ="text" name="msg" placeholder="Message">
+          <button id="buttonInput" type="submit" class="btn btn-primary" value="Send">
+              <img id="btnStartRecord" src="{{ url_for('static', filename='img/mic.svg') }}" alt="Bootstrap" width="32" height="32">
+          </button>
+          <script src="{{ url_for('static', filename='js/stt-spanish.js') }}"></script>
+      </div>
+      <div id = "chatbox">
+      </div>
+</div>
+{% endblock %}
